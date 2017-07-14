@@ -1,0 +1,16 @@
+<form [formGroup]="ddForm" (ngSubmit)="onSubmit()">
+  <label>Name</label><br>
+  <input type="text" name="name" [formControl]="name"><br>
+  <div *ngIf="!ddForm.controls['name'].valid" class="error">Required</div>
+  <br>
+  <label>Email</label><br>
+  <input type="text" name="email" [formControl]="email"><br>
+  <div *ngIf="!ddForm.controls['email'].valid" class="error">Required</div>
+  <br>
+  <label>Post</label><br>
+  <textarea name="post" cols="30" rows="10" [formControl]="post"></textarea><br>
+  <div *ngIf="!ddForm.controls['post'].valid" class="error">Minimum length 10</div>
+  <br>
+  <button class="{{ddForm.valid ? 'button' : 'button button-disable'}}" type="submit" [disabled]="!ddForm.valid">Submit</button>
+  <button class="button" type="button" (click)='getData()'>Get Data</button>
+</form>
